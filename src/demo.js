@@ -8,7 +8,13 @@ const topRightPercentage = document.getElementById('top-right-percentage')
 const botLeftPercentage = document.getElementById('bot-left-percentage')
 const botRightPercentage = document.getElementById('bot-right-percentage')
 
-const morphed = document.getElementById('morphed')
+// const morphed = document.getElementById('neuron31')
+var morphed = null;
+
+window.addEventListener("load", function() {
+    morphed = document.getElementById('alphasvg').contentDocument.getElementById('neuron31')
+    console.log(morphed);
+});
 
 const paths = {
   topLeft: document.getElementById('top-left').getAttribute('d'),
