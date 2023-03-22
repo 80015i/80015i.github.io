@@ -1,3 +1,11 @@
+# BoolSi website: 
+
+## Notes: 
+- requires hosting with a server since some SVGs have to be dynamically loaded
+- adding new shapes from Figma requires rewriting them with relative positioning and wrapping them in SVG tags where the SVG tags carry the absolute position using the `x` and `y` attributes
+    - also, the first two numbers after "m" in the path data set the starting position of the path, and they should be zeroed out
+    - some SVGs may start at their right or bottom corner, so they may underflow. That is why the SVG tag has the overflow attribute set
+
 # `svg-path-morph`
 ![ci](https://github.com/Minibrams/svg-path-morph/workflows/ci/badge.svg)
 ![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/Minibrams/52a42b0e3eb35095e2f81e12d63dc374/raw/svg-path-morph__master.json)
