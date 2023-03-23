@@ -1,24 +1,60 @@
 html, body {
   height: 100%;
   background: #2A2B47;
+  font-family: Rubik;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #EEE;
+}
+.site-header { 
+  /* border-bottom: 1px solid #ccc; */
+  padding: .5em 1em;
+}
+
+.site-header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.site-identity {
+  float: left;
+}
+
+.site-identity h1 {
+  font-size: 1.5em;
+  margin: .7em 0 .3em 0;
+  display: inline-block;
+}
+
+.site-identity img {
+  max-width: 20rem;
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+.site-navigation {
+  float: right;
+  font-size: 2em;
+}
+
+.site-navigation ul, li {
+  margin: 0; 
+  padding: 0;
+}
+
+.site-navigation li {
+  display: inline-block;
+  margin: 0.3em 0.3em 0.3em 0.3em;
 }
 
 /* svg { */
 /*   height: 10rem; */
 /*   width: 10rem; */
 /* } */
-
-#logo {
-  height: 1rem;
-  width: 1rem;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-}
-
-#logo > svg {
-  height: 1rem;
-  width: 1rem;
-}
 
 #butterfly {
   /* width: 50rem; */

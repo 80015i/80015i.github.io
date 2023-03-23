@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BoolSi Inc.</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
   <link rel="icon" type="image/png" href="./static/pngs/favicon-196x196.png" sizes="196x196" />
   <link rel="icon" type="image/png" href="./static/pngs/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/png" href="./static/pngs/favicon-32x32.png" sizes="32x32" />
@@ -21,12 +22,18 @@
 
 </head>
 <body>
-  <!-- Header with a logo on the left -->
-  <header>
-    <div id="logo">
-      <img src="./static/svgs/logo.svg" alt="logo">
-    </div>
+  <header class="site-header">
+    <div class="site-identity">
+      <a href="#"><img src="./static/svgs/logo.svg" alt="logo" /></a>
+      <!-- <h1><a href="#">Site Name</a></h1> -->
+    </div>  
+    <nav class="site-navigation">
+      <ul class="nav">
+        <li><a href="#">Contact</a></li> 
+      </ul>
+    </nav>
   </header>
+
 
   <section id="butterfly">
     <object data="./static/svgs/butterfly.svg" type="image/svg+xml" id="topology"></object>
