@@ -4,20 +4,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./static/style.css">
+  <title>BoolSi Inc.</title>
+  <link rel="icon" type="image/png" href="./static/pngs/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="./static/pngs/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="./static/pngs/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="./static/pngs/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="./static/pngs/favicon-128.png" sizes="128x128" />
+  <link rel="stylesheet" href="./static/css/style.css">
   <script src="./node_modules/snapsvg/dist/snap.svg-min.js"></script>
   <!--Invisible gates loaded from JS -->
-  <object data="./static/neuron_flat.svg" type="image/svg+xml" id="NRN" width="0%" height="0%" style="visibility: hidden;"></object>
-  <object data="./static/and.svg"         type="image/svg+xml" id="AND" width="0%" height="0%" style="visibility: hidden;"></object>
-  <object data="./static/or.svg"          type="image/svg+xml" id="OR"  width="0%" height="0%" style="visibility: hidden;"></object>
-  <object data="./static/register.svg"    type="image/svg+xml" id="REG" width="0%" height="0%" style="visibility: hidden;"></object>
-  <object data="./static/not.svg"         type="image/svg+xml" id="NOT" width="0%" height="0%" style="visibility: hidden;"></object>
+  <object data="./static/svgs/neuron_flat.svg" type="image/svg+xml" id="NRN" width="0%" height="0%" style="visibility: hidden;"></object>
+  <object data="./static/svgs/and.svg"         type="image/svg+xml" id="AND" width="0%" height="0%" style="visibility: hidden;"></object>
+  <object data="./static/svgs/or.svg"          type="image/svg+xml" id="OR"  width="0%" height="0%" style="visibility: hidden;"></object>
+  <object data="./static/svgs/register.svg"    type="image/svg+xml" id="REG" width="0%" height="0%" style="visibility: hidden;"></object>
+  <object data="./static/svgs/not.svg"         type="image/svg+xml" id="NOT" width="0%" height="0%" style="visibility: hidden;"></object>
 
 </head>
 <body>
+  <!-- Header with a logo on the left -->
+  <header>
+    <div id="logo">
+      <img src="./static/svgs/logo.svg" alt="logo">
+    </div>
+  </header>
+
   <section id="butterfly">
-    <object data="./static/butterfly.svg" type="image/svg+xml" id="topology"></object>
+    <object data="./static/svgs/butterfly.svg" type="image/svg+xml" id="topology"></object>
   </section>
 </body>
 <script src="dist/bundle.js"></script>
