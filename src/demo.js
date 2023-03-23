@@ -9,26 +9,48 @@ const botLeftPercentage = document.getElementById('bot-left-percentage')
 const botRightPercentage = document.getElementById('bot-right-percentage')
 
 // const morphed = document.getElementById('neuron31')
+// const paths = {
+//   topLeft: document.getElementById('top-left').getAttribute('d'),
+//   topRight: document.getElementById('top-right').getAttribute('d'),
+//   botLeft: document.getElementById('bot-left').getAttribute('d'),
+//   botRight: document.getElementById('bot-right').getAttribute('d')
+// }
+
+// const compiled = compile([
+//   paths.NRN,
+//   paths.,
+//   paths.botLeft,
+//   paths.botRight
+// ])
+
+
 var morphed = null;
+var paths = null;
+var compiled = null;
 
 window.addEventListener("load", function() {
-    morphed = document.getElementById('alphasvg').contentDocument.getElementById('neuron31')
-    console.log(morphed);
-});
+  morphed = document.getElementById('alphasvg').contentDocument.getElementById('neuron31')
 
-const paths = {
-  topLeft: document.getElementById('top-left').getAttribute('d'),
-  topRight: document.getElementById('top-right').getAttribute('d'),
-  botLeft: document.getElementById('bot-left').getAttribute('d'),
-  botRight: document.getElementById('bot-right').getAttribute('d')
-}
+  paths = {
+    NRN: document.getElementById('NRN').contentDocument
+        .getElementsByTagName('path')[0].getAttribute('d'),
+    AND: document.getElementById('AND').contentDocument
+        .getElementsByTagName('path')[0].getAttribute('d'),
+    OR:  document.getElementById('OR') .contentDocument
+        .getElementsByTagName('path')[0].getAttribute('d'),
+    REG: document.getElementById('REG').contentDocument
+        .getElementsByTagName('path')[0].getAttribute('d'),
+    NOT: document.getElementById('NOT').contentDocument
+        .getElementsByTagName('path')[0].getAttribute('d'),
+  }
 
-const compiled = compile([
-  paths.topLeft,
-  paths.topRight,
-  paths.botLeft,
-  paths.botRight
-])
+  compiled = compile([
+    paths.NRN,
+    paths.AND,
+    paths.OR,
+    paths.REG
+  ])
+})
 
 const dist = (x1, y1, x2, y2) => {
   return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2))
