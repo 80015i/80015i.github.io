@@ -30,20 +30,30 @@ var morphed = null;
 var paths = null;
 var compiled = null;
 
+/**
+ * Assumes that the DOM has already loaded an SVG and returns the path
+ * in the SVG. Assumes that there is only one path inside it.
+ * Converts the path to a relative path.
+ */
+const loadsvg = (id) => {
+  const svg = document.getElementById(id).contentDocument
+  const path = svg.getElementsByTagName('path')[0].getAttribute('d')
+  const relpath = Snap.path.toRelative(path)
+
+  relpath[0] = ["m", 0, 0]
+
+  return relpath.flat().join(" ")
+}
+
 window.addEventListener("load", function() {
   morphed = document.getElementById('alphasvg').contentDocument.getElementById('neuron31')
 
   paths = {
-    NRN: document.getElementById('NRN').contentDocument
-        .getElementsByTagName('path')[0].getAttribute('d'),
-    AND: document.getElementById('AND').contentDocument
-        .getElementsByTagName('path')[0].getAttribute('d'),
-    OR:  document.getElementById('OR') .contentDocument
-        .getElementsByTagName('path')[0].getAttribute('d'),
-    REG: document.getElementById('REG').contentDocument
-        .getElementsByTagName('path')[0].getAttribute('d'),
-    NOT: document.getElementById('NOT').contentDocument
-        .getElementsByTagName('path')[0].getAttribute('d'),
+    NRN: loadsvg('NRN'),
+    AND: loadsvg('AND'), 
+    OR:  loadsvg('OR'), 
+    REG: loadsvg('REG'),
+    NOT: loadsvg('NOT') 
   }
 
   compiled = compile([
