@@ -51,11 +51,6 @@ a {
   margin: 0.3em 0.3em 0.3em 0.3em;
 }
 
-/* svg { */
-/*   height: 10rem; */
-/*   width: 10rem; */
-/* } */
-
 #butterfly {
   /* width: 50rem; */
   height: 10rem;
@@ -69,14 +64,9 @@ a {
   justify-content: center;
 }
 
-#topology {
+#butterfly > svg {
   height: 40rem;
   width: 40rem;
-}
-
-#butterfly > svg {
-  height: 30rem;
-  width: 30rem;
   overflow: visible;
 }
 

@@ -2,6 +2,18 @@ import { compile, morph } from '../'
 // TODO: instead of loading snapsvg as a script, package it with webpack
 // import Snap from 'snapsvg';
 
+/*
+ * When the topology boject is loaded, extract the SVG and replace it in the DOM.
+ * The SVG should be a child of the section with id="butterfly".
+ */
+document.getElementById("topology").addEventListener("load", function() {
+  let topology = document.getElementById("topology")
+  let topology_svg = topology.contentDocument.getElementById("butterflysvg")
+  topology.remove()
+  document.getElementById("butterfly").appendChild(topology_svg)
+})
+
+
 // const morphed = document.getElementById('neuron31')
 // const paths = {
 //   topLeft: document.getElementById('top-left').getAttribute('d'),
@@ -37,8 +49,9 @@ const loadsvg = (id) => {
   return relpath.flat().join(" ")
 }
 
+
 window.addEventListener("load", function() {
-  morphed = document.getElementById('topology').contentDocument.getElementById('neuron31')
+  morphed = document.getElementById('neuron31')
 
   paths = {
     NRN: loadsvg('NRN'),
