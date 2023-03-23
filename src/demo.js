@@ -1,4 +1,6 @@
 import { compile, morph } from '../'
+// TODO: instead of loading snapsvg as a script, package it with webpack
+// import Snap from 'snapsvg';
 
 const templates = document.getElementById('templates')
 const bounds = templates.getBoundingClientRect()

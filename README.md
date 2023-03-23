@@ -1,5 +1,11 @@
 # BoolSi website: 
 
+# Installation
+- TODO: webpack
+- Install Snap
+  - `npm -i -D imports-loader`
+  - `npm install snapsvg`
+
 ## Notes: 
 - requires hosting with a server since some SVGs have to be dynamically loaded
 - adding new shapes from Figma requires rewriting them with relative positioning and wrapping them in SVG tags where the SVG tags carry the absolute position using the `x` and `y` attributes
