@@ -106,3 +106,28 @@ window.addEventListener('mousemove', (e) => {
   //   botRightPct
   // ]))
 })
+
+/**
+ * Animation function
+ */
+window.addEventListener("load", function() {
+  var neuron = document.getElementById('neuron31')
+  anime({
+    targets: ".neuron",
+    // scale: 1.2,
+    fill: '#F0F',
+    delay: function(el, i, l) {
+      let x = i % 4
+      let y = Math.floor(i / 4)
+      return 100 * (x + y) + anime.random(0, 5000);
+    },
+    // update: function() {
+    //   morphed.setAttribute('d', morph(compiled, [
+    //     0.5,
+    //     0.5,
+    //     0.5,
+    //     0.5
+    //   ]))
+    // },
+  })
+})
