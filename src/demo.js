@@ -57,8 +57,8 @@ window.addEventListener("load", function() {
     NRN: loadsvg('NRN'),
     AND: loadsvg('AND'), 
     OR:  loadsvg('OR'), 
-    REG: loadsvg('REG'),
-    NOT: loadsvg('NOT') 
+    REG: loadsvg('REG')
+    // NOT: loadsvg('NOT') 
   }
 
   compiled = compile([
@@ -66,6 +66,7 @@ window.addEventListener("load", function() {
     paths.AND,
     paths.OR,
     paths.REG
+    // paths.NOT
   ])
 })
 
