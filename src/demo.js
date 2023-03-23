@@ -2,14 +2,6 @@ import { compile, morph } from '../'
 // TODO: instead of loading snapsvg as a script, package it with webpack
 // import Snap from 'snapsvg';
 
-const templates = document.getElementById('templates')
-const bounds = templates.getBoundingClientRect()
-
-const topLeftPercentage = document.getElementById('top-left-percentage')
-const topRightPercentage = document.getElementById('top-right-percentage')
-const botLeftPercentage = document.getElementById('bot-left-percentage')
-const botRightPercentage = document.getElementById('bot-right-percentage')
-
 // const morphed = document.getElementById('neuron31')
 // const paths = {
 //   topLeft: document.getElementById('top-left').getAttribute('d'),
@@ -46,7 +38,7 @@ const loadsvg = (id) => {
 }
 
 window.addEventListener("load", function() {
-  morphed = document.getElementById('alphasvg').contentDocument.getElementById('neuron31')
+  morphed = document.getElementById('topology').contentDocument.getElementById('neuron31')
 
   paths = {
     NRN: loadsvg('NRN'),
@@ -73,30 +65,30 @@ const clamp = (value, min, max) => {
 }
 
 window.addEventListener('mousemove', (e) => {
-  let x = (e.clientX - bounds.left) / bounds.width
-  let y = (e.clientY - bounds.top) / bounds.height
-
-  if (x < 0 || x > 1 || y < 0 || y > 1) {
-    x = 0
-    y = 0
-  }
-
-  const distToMiddle = Math.sqrt(2) / 2
-
-  const topRightPct = 1 - clamp(dist(x, y, 0, 0) / distToMiddle, 0, 1)
-  const topLeftPct = 1 - clamp(dist(x, y, 1, 0) / distToMiddle, 0, 1)
-  const botLeftPct = 1 - clamp(dist(x, y, 0, 1) / distToMiddle, 0, 1)
-  const botRightPct = 1 - clamp(dist(x, y, 1, 1) / distToMiddle, 0, 1)
-
-  topLeftPercentage.innerText = `${Math.round(topRightPct * 100)}%`
-  topRightPercentage.innerText = `${Math.round(topLeftPct * 100)}%`
-  botLeftPercentage.innerText = `${Math.round(botLeftPct * 100)}%`
-  botRightPercentage.innerText = `${Math.round(botRightPct * 100)}%`
-
-  morphed.setAttribute('d', morph(compiled, [
-    topRightPct,
-    topLeftPct,
-    botLeftPct,
-    botRightPct
-  ]))
+  // let x = (e.clientX - bounds.left) / bounds.width
+  // let y = (e.clientY - bounds.top) / bounds.height
+  //
+  // if (x < 0 || x > 1 || y < 0 || y > 1) {
+  //   x = 0
+  //   y = 0
+  // }
+  //
+  // const distToMiddle = Math.sqrt(2) / 2
+  //
+  // const topRightPct = 1 - clamp(dist(x, y, 0, 0) / distToMiddle, 0, 1)
+  // const topLeftPct = 1 - clamp(dist(x, y, 1, 0) / distToMiddle, 0, 1)
+  // const botLeftPct = 1 - clamp(dist(x, y, 0, 1) / distToMiddle, 0, 1)
+  // const botRightPct = 1 - clamp(dist(x, y, 1, 1) / distToMiddle, 0, 1)
+  //
+  // topLeftPercentage.innerText = `${Math.round(topRightPct * 100)}%`
+  // topRightPercentage.innerText = `${Math.round(topLeftPct * 100)}%`
+  // botLeftPercentage.innerText = `${Math.round(botLeftPct * 100)}%`
+  // botRightPercentage.innerText = `${Math.round(botRightPct * 100)}%`
+  //
+  // morphed.setAttribute('d', morph(compiled, [
+  //   topRightPct,
+  //   topLeftPct,
+  //   botLeftPct,
+  //   botRightPct
+  // ]))
 })
