@@ -47,6 +47,7 @@
     "chai-as-promised": "^7.1.1",
     "eslint": "^7.15.0",
     "eslint-plugin-unused-imports": "^1.0.1",
+    "imports-loader": "^4.0.1",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
     "sinon": "^9.2.2",
@@ -56,6 +57,7 @@
   },
   "dependencies": {
     "parse-svg-path": "^0.1.2",
+    "snapsvg": "^0.5.1",
     "svg-path-morph": "^1.0.2"
   }
 }
