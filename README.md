@@ -5,6 +5,8 @@
 - Install Snap
   - `npm -i -D imports-loader`
   - `npm install snapsvg`
+- Install animejs:
+  - `npm install animejs --save`
 
 ## Notes: 
 - requires hosting with a server since some SVGs have to be dynamically loaded
