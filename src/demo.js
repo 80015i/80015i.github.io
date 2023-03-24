@@ -25,42 +25,13 @@ const clamp = (value, min, max) => {
   return Math.min(Math.max(value, min), max)
 }
 
-window.addEventListener('mousemove', (e) => {
-  // let x = (e.clientX - bounds.left) / bounds.width
-  // let y = (e.clientY - bounds.top) / bounds.height
-  //
-  // if (x < 0 || x > 1 || y < 0 || y > 1) {
-  //   x = 0
-  //   y = 0
-  // }
-  //
-  // const distToMiddle = Math.sqrt(2) / 2
-  //
-  // const topRightPct = 1 - clamp(dist(x, y, 0, 0) / distToMiddle, 0, 1)
-  // const topLeftPct = 1 - clamp(dist(x, y, 1, 0) / distToMiddle, 0, 1)
-  // const botLeftPct = 1 - clamp(dist(x, y, 0, 1) / distToMiddle, 0, 1)
-  // const botRightPct = 1 - clamp(dist(x, y, 1, 1) / distToMiddle, 0, 1)
-  //
-  // topLeftPercentage.innerText = `${Math.round(topRightPct * 100)}%`
-  // topRightPercentage.innerText = `${Math.round(topLeftPct * 100)}%`
-  // botLeftPercentage.innerText = `${Math.round(botLeftPct * 100)}%`
-  // botRightPercentage.innerText = `${Math.round(botRightPct * 100)}%`
-  //
-  // morphed.setAttribute('d', morph(compiled, [
-  //   topRightPct,
-  //   topLeftPct,
-  //   botLeftPct,
-  //   botRightPct
-  // ]))
-})
-
 /*
  * Function that returns the weight array based on gate idx and progress value
  */
 const getGate = (idx, progress) => {
-  let gate = [0, 0, 0, 0]
-  gate[idx] = Number(progress)
-  return gate
+  let gate = [0, 0, 0, 0, 0];
+  gate[idx] = Number(progress);
+  return gate;
 }
 
 /**
@@ -72,8 +43,8 @@ window.addEventListener("load", function() {
     loadsvg('AND'), 
     loadsvg('OR'), 
     loadsvg('REG'),
-    // loadsvg('NOT')
- ])
+    loadsvg('NOT'),
+  ]);
 
 
   /*
@@ -92,22 +63,27 @@ window.addEventListener("load", function() {
 
     for (var i = 0; i < neuron_solid.length; i++) {
     // for (var i = 0; i < 1; i++) {
-      neuron_solid[i].setAttribute('gate', anime.random(1, 3));
+      neuron_solid[i].setAttribute('gate', anime.random(1, 4));
       neuron_gradient[i].setAttribute('gate', neuron_solid[i].getAttribute('gate'));
       neuron_solid[i].setAttribute('progress', 0);
       neuron_gradient[i].setAttribute('progress', 0);
 
       // Make sure that paths are relative and start at zero 
-      var path = Snap.path.toRelative(neuron_solid[i].getAttribute('d')).flat().join(" ");
+      let path = Snap.path.toRelative(neuron_solid[i].getAttribute('d')).flat().join(" ");
       neuron_solid[i].setAttribute('d', path);
       neuron_gradient[i].setAttribute('d', path);
 
-      var delay = 100 * ((i % 4) + Math.floor(i / 4)) + anime.random(0, 5000);
+      let delay = 100 * ((i % 4) + Math.floor(i / 4)) + anime.random(0, 10000);
+      let duration = 1500;
+      let easing = "easeInOutExpo";
 
-      anime({
+      // TODO: to create a loop where all nodes go back to neurons **together**,
+      // look at https://animejs.com/documentation/#TLParamsInheritance
+      anime.timeline({
         targets: [neuron_solid[i], neuron_gradient[i]],
         progress: 1,
         delay: delay,
+        easing: easing,
         d: function(el, i, l) {
           let gate = el.getAttribute('gate');
           let weights = getGate(gate, 1);
@@ -118,14 +94,27 @@ window.addEventListener("load", function() {
           let new_end = newpath.split("c").slice(1);
           return old_start + "c" + new_end.join("c");
         }, 
+        // opacity: anime.random(0, 2),
+        duration: duration,
+        // endDelay: 10000, 
+        // direction: 'alternate',
+        // loop: true,
+      }).add({
+        // Make nodes disappear a shortly before changing shape, in order to not confuse
+        easing: easing,
+        delay: delay - 500,
         opacity: anime.random(0, 2),
-        duration: 1000,
+        duration: duration,
       });
 
       anime({
+        easing: easing,
         targets: neuron_solid[i],
         delay: delay,
         fill: "#2DBD89",
+        // endDelay: 10000, 
+        // direction: 'alternate',
+        // loop: true,
       });
 
     }
