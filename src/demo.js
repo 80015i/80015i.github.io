@@ -77,7 +77,7 @@ window.addEventListener("load", function() {
     let topology = document.getElementById("topology");
     let topology_svg = topology.contentDocument.getElementById("butterflysvg");
     topology.remove();
-    document.getElementById("butterfly").appendChild(topology_svg);
+    document.getElementById("graphics").appendChild(topology_svg);
   }, 10);
   anime({
     targets: ".neuron",
