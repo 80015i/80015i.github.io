@@ -14,26 +14,6 @@ document.getElementById("topology").addEventListener("load", function() {
 })
 
 
-// const morphed = document.getElementById('neuron31')
-// const paths = {
-//   topLeft: document.getElementById('top-left').getAttribute('d'),
-//   topRight: document.getElementById('top-right').getAttribute('d'),
-//   botLeft: document.getElementById('bot-left').getAttribute('d'),
-//   botRight: document.getElementById('bot-right').getAttribute('d')
-// }
-
-// const compiled = compile([
-//   paths.NRN,
-//   paths.,
-//   paths.botLeft,
-//   paths.botRight
-// ])
-
-
-var morphed = null;
-var paths = null;
-var compiled = null;
-
 /**
  * Assumes that the DOM has already loaded an SVG and returns the path
  * in the SVG. Assumes that there is only one path inside it.
@@ -48,27 +28,6 @@ const loadsvg = (id) => {
 
   return relpath.flat().join(" ")
 }
-
-
-window.addEventListener("load", function() {
-  morphed = document.getElementById('neuron31')
-
-  paths = {
-    NRN: loadsvg('NRN'),
-    AND: loadsvg('AND'), 
-    OR:  loadsvg('OR'), 
-    REG: loadsvg('REG')
-    // NOT: loadsvg('NOT') 
-  }
-
-  compiled = compile([
-    paths.NRN,
-    paths.AND,
-    paths.OR,
-    paths.REG
-    // paths.NOT
-  ])
-})
 
 const dist = (x1, y1, x2, y2) => {
   return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2))
