@@ -67,6 +67,14 @@ const getGate = (idx, progress) => {
  * Animation function
  */
 window.addEventListener("load", function() {
+  const compiled = compile([
+    loadsvg('NRN'),
+    loadsvg('AND'), 
+    loadsvg('OR'), 
+    loadsvg('REG'),
+    // loadsvg('NOT')
+ ])
+
 
   /*
    * When the nodes_temp object is loaded, extract the SVG and replace it in the DOM.
@@ -78,38 +86,32 @@ window.addEventListener("load", function() {
     let nodes_svg = nodes_temp.contentDocument.getElementById("nodes_svg");
     nodes_temp.remove();
     document.getElementById("graphics").appendChild(nodes_svg);
+
+    var neurons = document.getElementsByClassName('neuron');
+    for (var i = 0; i < neurons.length; i++) {
+      neurons[i].setAttribute('gate', anime.random(1, 3));
+      neurons[i].setAttribute('progress', 0);
+      neurons[i].setAttribute('d', Snap.path.toRelative(neurons[i].getAttribute('d')));
+    }
+
+    anime({
+      targets: ".neuron",
+      // scale: 1.2,
+      // fill: 'url(#neuron_gradient2)',
+      progress: 1,
+      delay: function(el, i, l) {
+        let x = i % 4
+        let y = Math.floor(i / 4)
+        return 100 * (x + y) + anime.random(0, 5000);
+      },
+      // fill: "url(#neuron_gradient2)",
+      // fill: '#ff0000',
+      // opacity: 0.5,
+      d: function(el, i, l) {
+        let gate = el.getAttribute('gate');
+        let weights = getGate(gate, 1);
+        return morph(compiled, weights);
+      }, 
+    })
   }, 10);
-
-  const compiled = compile([
-    loadsvg('NRN'),
-    loadsvg('AND'), 
-    loadsvg('OR'), 
-    loadsvg('REG'),
-    // loadsvg('NOT')
- ])
-
-  var neurons = document.getElementsByClassName('neuron')
-  for (var i = 0; i < neurons.length; i++) {
-    neurons[i].setAttribute('gate', anime.random(1, 3))
-    neurons[i].setAttribute('progress', 0)
-  }
-
-  anime({
-    targets: ".neuron",
-    // scale: 1.2,
-    fill: '#F0F',
-    delay: function(el, i, l) {
-      let x = i % 4
-      let y = Math.floor(i / 4)
-      return 100 * (x + y) + anime.random(0, 5000);
-    },
-    // update: function() {
-    //   morphed.setAttribute('d', morph(compiled, [
-    //     0.5,
-    //     0.5,
-    //     0.5,
-    //     0.5
-    //   ]))
-    // },
-  })
 })
