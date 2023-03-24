@@ -69,15 +69,15 @@ const getGate = (idx, progress) => {
 window.addEventListener("load", function() {
 
   /*
-   * When the topology boject is loaded, extract the SVG and replace it in the DOM.
+   * When the nodes_temp object is loaded, extract the SVG and replace it in the DOM.
    * The SVG should be a child of the section with id="butterfly".
    * FIXME: waits 10 milliseconds because otherwise sometimes the SVG does not show up
    */
   setTimeout(() => {
-    let topology = document.getElementById("topology");
-    let topology_svg = topology.contentDocument.getElementById("butterflysvg");
-    topology.remove();
-    document.getElementById("graphics").appendChild(topology_svg);
+    let nodes_temp = document.getElementById("nodes_temp");
+    let nodes_svg = nodes_temp.contentDocument.getElementById("nodes_svg");
+    nodes_temp.remove();
+    document.getElementById("graphics").appendChild(nodes_svg);
   }, 10);
   anime({
     targets: ".neuron",

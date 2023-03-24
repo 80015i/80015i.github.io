@@ -64,7 +64,7 @@ a {
   justify-content: center;
 }
 
-#butterfly > svg {
+#nodes_svg {
   height: 40rem;
   width: 40rem;
   overflow: visible;
