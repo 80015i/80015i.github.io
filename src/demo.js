@@ -66,6 +66,15 @@ window.addEventListener('mousemove', (e) => {
   // ]))
 })
 
+/*
+ * Function that returns the weight array based on gate idx and progress value
+ */
+const getGate = (idx, progress) => {
+  let gate = [0, 0, 0, 0]
+  gate[idx] = Number(progress)
+  return gate
+}
+
 /**
  * Animation function
  */
