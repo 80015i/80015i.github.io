@@ -79,6 +79,21 @@ window.addEventListener("load", function() {
     nodes_temp.remove();
     document.getElementById("graphics").appendChild(nodes_svg);
   }, 10);
+
+  const compiled = compile([
+    loadsvg('NRN'),
+    loadsvg('AND'), 
+    loadsvg('OR'), 
+    loadsvg('REG'),
+    // loadsvg('NOT')
+ ])
+
+  var neurons = document.getElementsByClassName('neuron')
+  for (var i = 0; i < neurons.length; i++) {
+    neurons[i].setAttribute('gate', anime.random(1, 3))
+    neurons[i].setAttribute('progress', 0)
+  }
+
   anime({
     targets: ".neuron",
     // scale: 1.2,
