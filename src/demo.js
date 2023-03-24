@@ -74,7 +74,7 @@ window.addEventListener("load", function() {
       neuron_gradient[i].setAttribute('d', path);
 
       let delay = 100 * ((i % 4) + Math.floor(i / 4)) + anime.random(0, 10000);
-      let duration = 1500;
+      let duration = 3000;
       let easing = "easeInOutExpo";
 
       // TODO: to create a loop where all nodes go back to neurons **together**,
@@ -103,7 +103,7 @@ window.addEventListener("load", function() {
         // Make nodes disappear a shortly before changing shape, in order to not confuse
         easing: easing,
         delay: delay - 500,
-        opacity: anime.random(0, 2),
+        opacity: anime.random(0, 0.8),
         duration: duration,
       });
 
@@ -112,6 +112,7 @@ window.addEventListener("load", function() {
         targets: neuron_solid[i],
         delay: delay,
         fill: "#2DBD89",
+        duration: duration,
         // endDelay: 10000, 
         // direction: 'alternate',
         // loop: true,
