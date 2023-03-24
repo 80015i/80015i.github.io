@@ -87,31 +87,44 @@ window.addEventListener("load", function() {
     nodes_temp.remove();
     document.getElementById("graphics").appendChild(nodes_svg);
 
-    var neurons = document.getElementsByClassName('neuron');
-    for (var i = 0; i < neurons.length; i++) {
-      neurons[i].setAttribute('gate', anime.random(1, 3));
-      neurons[i].setAttribute('progress', 0);
-      neurons[i].setAttribute('d', Snap.path.toRelative(neurons[i].getAttribute('d')));
-    }
+    var neuron_solid = document.getElementsByClassName('neuron_solid');
+    var neuron_gradient =  document.getElementsByClassName('neuron_gradient');
 
-    anime({
-      targets: ".neuron",
-      // scale: 1.2,
-      // fill: 'url(#neuron_gradient2)',
-      progress: 1,
-      delay: function(el, i, l) {
-        let x = i % 4
-        let y = Math.floor(i / 4)
-        return 100 * (x + y) + anime.random(0, 5000);
-      },
-      // fill: "url(#neuron_gradient2)",
-      // fill: '#ff0000',
-      // opacity: 0.5,
-      d: function(el, i, l) {
-        let gate = el.getAttribute('gate');
-        let weights = getGate(gate, 1);
-        return morph(compiled, weights);
-      }, 
-    })
+    for (var i = 0; i < neuron_solid.length; i++) {
+    // for (var i = 0; i < 1; i++) {
+      neuron_solid[i].setAttribute('gate', anime.random(1, 3));
+      neuron_gradient[i].setAttribute('gate', neuron_solid[i].getAttribute('gate'));
+      neuron_solid[i].setAttribute('progress', 0);
+      neuron_gradient[i].setAttribute('progress', 0);
+
+      // Make sure that paths are relative and start at zero 
+      var path = Snap.path.toRelative(neuron_solid[i].getAttribute('d')).flat().join(" ");
+      neuron_solid[i].setAttribute('d', path);
+      neuron_gradient[i].setAttribute('d', path);
+
+      var delay = 100 * ((i % 4) + Math.floor(i / 4)) + anime.random(0, 5000);
+
+      anime({
+        targets: [neuron_solid[i], neuron_gradient[i]],
+        // scale: 1.2,
+        // fill: 'url(#neuron_gradient2)',
+        progress: 1,
+        delay: delay,
+        // fill: "url(#neuron_gradient2)",
+        // fill: '#ff0000',
+        // opacity: 0.5,
+        d: function(el, i, l) {
+          let gate = el.getAttribute('gate');
+          let weights = getGate(gate, 1);
+          let newpath = morph(compiled, weights);
+
+          // make sure that el's start is preserved
+          let old_start = el.getAttribute('d').split("c")[0];
+          let new_end = newpath.split("c").slice(1);
+          return old_start + "c" + new_end.join("c");
+        }, 
+        duration: 1000,
+      })
+    }
   }, 10);
 })
