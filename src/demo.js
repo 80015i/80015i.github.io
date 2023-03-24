@@ -2,18 +2,6 @@ import { compile, morph } from '../'
 // TODO: instead of loading snapsvg as a script, package it with webpack
 // import Snap from 'snapsvg';
 
-/*
- * When the topology boject is loaded, extract the SVG and replace it in the DOM.
- * The SVG should be a child of the section with id="butterfly".
- */
-document.getElementById("topology").addEventListener("load", function() {
-  let topology = document.getElementById("topology")
-  let topology_svg = topology.contentDocument.getElementById("butterflysvg")
-  topology.remove()
-  document.getElementById("butterfly").appendChild(topology_svg)
-})
-
-
 /**
  * Assumes that the DOM has already loaded an SVG and returns the path
  * in the SVG. Assumes that there is only one path inside it.
@@ -79,7 +67,18 @@ const getGate = (idx, progress) => {
  * Animation function
  */
 window.addEventListener("load", function() {
-  var neuron = document.getElementById('neuron31')
+
+  /*
+   * When the topology boject is loaded, extract the SVG and replace it in the DOM.
+   * The SVG should be a child of the section with id="butterfly".
+   * FIXME: waits 10 milliseconds because otherwise sometimes the SVG does not show up
+   */
+  setTimeout(() => {
+    let topology = document.getElementById("topology");
+    let topology_svg = topology.contentDocument.getElementById("butterflysvg");
+    topology.remove();
+    document.getElementById("butterfly").appendChild(topology_svg);
+  }, 10);
   anime({
     targets: ".neuron",
     // scale: 1.2,
