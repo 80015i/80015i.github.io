@@ -106,13 +106,8 @@ window.addEventListener("load", function() {
 
       anime({
         targets: [neuron_solid[i], neuron_gradient[i]],
-        // scale: 1.2,
-        // fill: 'url(#neuron_gradient2)',
         progress: 1,
         delay: delay,
-        // fill: "url(#neuron_gradient2)",
-        // fill: '#ff0000',
-        // opacity: 0.5,
         d: function(el, i, l) {
           let gate = el.getAttribute('gate');
           let weights = getGate(gate, 1);
@@ -123,8 +118,16 @@ window.addEventListener("load", function() {
           let new_end = newpath.split("c").slice(1);
           return old_start + "c" + new_end.join("c");
         }, 
+        opacity: anime.random(0, 2),
         duration: 1000,
-      })
+      });
+
+      anime({
+        targets: neuron_solid[i],
+        delay: delay,
+        fill: "#2DBD89",
+      });
+
     }
   }, 10);
 })
