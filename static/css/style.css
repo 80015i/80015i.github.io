@@ -90,15 +90,18 @@ a {
 }
 
 #nodes_svg {
-  height: 40rem;
+  /* height: 40rem; */
+  width: 160rem;
   /* width: 50rem; */
   overflow: visible;
   position: relative;
 }
 
 #graph {
-    position: absolute;
-    height: 40rem;
-    /* width: 50rem; */
+  position: absolute;
+  overflow: visible;
+  /* height: 40rem; */
+  width: 160rem;
+  /* width: 50rem; */
 }
 
