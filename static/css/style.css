@@ -64,6 +64,10 @@ a {
   text-align: center;
 }
 
+#tagline h1 {
+  font-weight: 700;
+}
+
 #contact {
   margin-top: 25rem;
   font-size: 2rem !important;
