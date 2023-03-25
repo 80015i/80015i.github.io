@@ -1,7 +1,7 @@
 {
-  "name": "svg-path-morph",
-  "version": "1.0.2",
-  "description": "Small library for morphing bewtween multiple SVG paths.",
+  "name": "80015i.github.io",
+  "version": "0.1.1",
+  "description": "BoolSi Inc. GitHub page",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Minibrams/svg-path-morph.git"
+    "url": "https://github.com/80015i/80015i.github.io/"
   },
   "nyc": {
     "include": "src",
@@ -25,18 +25,13 @@
     ]
   },
   "keywords": [
-    "svg",
-    "morph",
-    "multiple",
-    "path",
-    "interpolate"
   ],
-  "author": "Anders Brams",
+  "author": "Mihailo Isakov",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Minibrams/svg-path-morph/issues"
+    "url": "https://github.com/80015i/80015i.github.io/"
   },
-  "homepage": "https://github.com/Minibrams/svg-path-morph#readme",
+  "homepage": "https://github.com/80015i/80015i.github.io/",
   "devDependencies": {
     "@types/chai": "^4.2.14",
     "@types/chai-as-promised": "^7.1.3",
