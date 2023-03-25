@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npm run build && ts-node src/index.ts",
     "test": "nyc --reporter=json-summary --reporter=text mocha -r ts-node/register 'src/**/*.test.ts'",
-    "demo": "npm run build && npx webpack --config webpack.config.js",
+    "main": "npm run build && npx webpack --config webpack.config.js",
     "build": "tsc",
     "prepublish": "npm run build"
   },

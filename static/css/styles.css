@@ -368,15 +368,13 @@ main {
 }
 
 #graphics #graph,
-#graphics #nodes_temp,
-#graphics #nodes_svg {
+#graphics #nodes_temp {
   position: absolute;
   max-width: none;
   width: 160rem;
 }
 
-#graphics #nodes_temp,
-#graphics #nodes_svg {
+#graphics #nodes_temp {
   overflow: visible;
   position: relative;
 }
