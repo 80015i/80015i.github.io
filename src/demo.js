@@ -64,7 +64,7 @@ window.addEventListener("load", function() {
 
     for (var i = 0; i < neuron_fill.length; i++) {
     // for (var i = 0; i < 1; i++) {
-      neuron_fill[i].setAttribute('gate', anime.random(1, 3));
+      neuron_fill[i].setAttribute('gate', anime.random(1, 4));
       neuron_grad[i].setAttribute('gate', neuron_fill[i].getAttribute('gate'));
       neuron_edge[i].setAttribute('gate', neuron_fill[i].getAttribute('gate'));
       neuron_fill[i].setAttribute('progress', 0);
