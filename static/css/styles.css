@@ -371,7 +371,7 @@ main {
 #graphics #nodes_temp {
   position: absolute;
   max-width: none;
-  width: 160rem;
+  width: 100rem;
 }
 
 #graphics #nodes_temp {
@@ -379,6 +379,33 @@ main {
   position: relative;
 }
 
+@media (min-width: 900px) {
+  #graphics #graph,
+  #graphics #nodes_temp {
+    width: 120rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  #graphics #graph,
+  #graphics #nodes_temp {
+    width: 140rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  #graphics #graph,
+  #graphics #nodes_temp {
+    width: 160rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  #graphics #graph,
+  #graphics #nodes_temp {
+    width: 180rem;
+  }
+}
 
 /*  ===========
     Footer
