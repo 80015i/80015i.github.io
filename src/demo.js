@@ -8,13 +8,13 @@ import { compile, morph } from '../'
  * Converts the path to a relative path.
  */
 const loadsvg = (id) => {
-  const svg = document.getElementById(id).contentDocument
-  const path = svg.getElementsByTagName('path')[0].getAttribute('d')
-  const relpath = Snap.path.toRelative(path)
+  const svg = document.getElementById(id).contentDocument;
+  const path = svg.getElementsByTagName('path')[0].getAttribute('d');
+  const relpath = Snap.path.toRelative(path);
 
-  relpath[0] = ["m", 0, 0]
+  relpath[0] = ["m", 0, 0];
 
-  return relpath.flat().join(" ")
+  return relpath.flat().join(" ");
 }
 
 const dist = (x1, y1, x2, y2) => {
