@@ -457,4 +457,5 @@ footer {
     ===========  */
 .gate_svg {
   position: absolute;
+  flex-wrap: wrap;
 }
