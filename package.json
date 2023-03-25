@@ -1,7 +1,7 @@
 {
-  "name": "80015i.github.io",
+  "name": "BoolSi GitHub page",
   "version": "0.1.1",
-  "description": "BoolSi Inc. GitHub page",
+  "description": "BoolSi GitHub page",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
