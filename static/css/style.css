@@ -65,6 +65,7 @@ a {
 }
 
 #contact {
+  margin-top: 25rem;
   font-size: 2rem !important;
   font-weight: 300 !important;
   padding: 0;
@@ -73,26 +74,21 @@ a {
   justify-content: center;
   display: flex;
   height: 100%;
-  margin-top: 20rem;
 }
 
 #graphics {
-  /* width: 50rem; */
   height: 10rem;
   display: flex;
   flex-direction: column;
   gap: 5rem;
   display: flex;
-  /* margin-top: 30rem; */
   margin-bottom: auto;
   align-items: center;
   justify-content: center;
 }
 
 #nodes_svg {
-  /* height: 40rem; */
   width: 160rem;
-  /* width: 50rem; */
   overflow: visible;
   position: relative;
 }
@@ -100,8 +96,6 @@ a {
 #graph {
   position: absolute;
   overflow: visible;
-  /* height: 40rem; */
   width: 160rem;
-  /* width: 50rem; */
 }
 

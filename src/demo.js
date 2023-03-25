@@ -29,7 +29,7 @@ const clamp = (value, min, max) => {
  * Function that returns the weight array based on gate idx and progress value
  */
 const getGate = (idx, progress) => {
-  let gate = [0, 0, 0, 0, 0];
+  let gate = [0, 0, 0, 0];
   gate[idx] = Number(progress);
   return gate;
 }
@@ -39,7 +39,6 @@ const getGate = (idx, progress) => {
  */
 window.addEventListener("load", function() {
   const compiled = compile([
-    loadsvg('NRN'),
     loadsvg('AND'), 
     loadsvg('OR'), 
     loadsvg('REG'),
@@ -64,7 +63,7 @@ window.addEventListener("load", function() {
 
     for (var i = 0; i < neuron_fill.length; i++) {
     // for (var i = 0; i < 1; i++) {
-      neuron_fill[i].setAttribute('gate', anime.random(1, 4));
+      neuron_fill[i].setAttribute('gate', anime.random(0, 3));
       neuron_grad[i].setAttribute('gate', neuron_fill[i].getAttribute('gate'));
       neuron_edge[i].setAttribute('gate', neuron_fill[i].getAttribute('gate'));
       neuron_fill[i].setAttribute('progress', 0);
