@@ -58,29 +58,35 @@ window.addEventListener("load", function() {
     nodes_temp.remove();
     document.getElementById("graphics").appendChild(nodes_svg);
 
-    var neuron_solid = document.getElementsByClassName('neuron_solid');
-    var neuron_gradient =  document.getElementsByClassName('neuron_gradient');
+    var neuron_fill = document.getElementsByClassName('neuron_fill');
+    var neuron_grad = document.getElementsByClassName('neuron_grad');
+    var neuron_edge = document.getElementsByClassName('neuron_edge');
 
-    for (var i = 0; i < neuron_solid.length; i++) {
+    for (var i = 0; i < neuron_fill.length; i++) {
     // for (var i = 0; i < 1; i++) {
-      neuron_solid[i].setAttribute('gate', anime.random(1, 4));
-      neuron_gradient[i].setAttribute('gate', neuron_solid[i].getAttribute('gate'));
-      neuron_solid[i].setAttribute('progress', 0);
-      neuron_gradient[i].setAttribute('progress', 0);
+      neuron_fill[i].setAttribute('gate', anime.random(1, 3));
+      neuron_grad[i].setAttribute('gate', neuron_fill[i].getAttribute('gate'));
+      neuron_edge[i].setAttribute('gate', neuron_fill[i].getAttribute('gate'));
+      neuron_fill[i].setAttribute('progress', 0);
+      neuron_grad[i].setAttribute('progress', 0);
+      neuron_edge[i].setAttribute('progress', 0);
 
       // Make sure that paths are relative and start at zero 
-      let path = Snap.path.toRelative(neuron_solid[i].getAttribute('d')).flat().join(" ");
-      neuron_solid[i].setAttribute('d', path);
-      neuron_gradient[i].setAttribute('d', path);
+      let path = Snap.path.toRelative(neuron_fill[i].getAttribute('d')).flat().join(" ");
 
-      let delay = 100 * ((i % 4) + Math.floor(i / 4)) + anime.random(0, 10000);
-      let duration = 3000;
-      let easing = "easeInOutExpo";
+      neuron_fill[i].setAttribute('d', path);
+      neuron_grad[i].setAttribute('d', path);
+      neuron_edge[i].setAttribute('d', path);
+
+      const delay = 100 * ((i % 4) + Math.floor(i / 4)) + anime.random(0, 10000);
+      const duration = 3000;
+      const easing = "easeInOutExpo";
+      const opacity_perc = 80;
 
       // TODO: to create a loop where all nodes go back to neurons **together**,
       // look at https://animejs.com/documentation/#TLParamsInheritance
       anime.timeline({
-        targets: [neuron_solid[i], neuron_gradient[i]],
+        targets: [neuron_fill[i], neuron_grad[i], neuron_edge[i]],
         progress: 1,
         delay: delay,
         easing: easing,
@@ -103,13 +109,13 @@ window.addEventListener("load", function() {
         // Make nodes disappear a shortly before changing shape, in order to not confuse
         easing: easing,
         delay: delay - 500,
-        opacity: anime.random(0, 0.8),
+        opacity: anime.random(0, opacity_perc / 100),
         duration: duration,
       });
 
       anime({
         easing: easing,
-        targets: neuron_solid[i],
+        targets: neuron_fill[i],
         delay: delay,
         fill: "#2DBD89",
         duration: duration,
