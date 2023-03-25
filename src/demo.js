@@ -77,7 +77,7 @@ window.addEventListener("load", function() {
       neuron_grad[i].setAttribute('d', path);
       neuron_edge[i].setAttribute('d', path);
 
-      const delay = 100 * ((i % 4) + Math.floor(i / 4)) + anime.random(0, 10000);
+      const delay = 100 * ((i % 4) + Math.floor(i / 4)) + anime.random(0, 5000);
       const duration = 3000;
       const easing = "easeInOutExpo";
       const opacity_perc = 80;
