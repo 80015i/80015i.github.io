@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "predeploy": "npm run build", 
     "start": "npm run build && ts-node src/index.ts",
+    "deploy": "gh-pages -d build"
     "test": "nyc --reporter=json-summary --reporter=text mocha -r ts-node/register 'src/**/*.test.ts'",
     "main": "npm run build && npx webpack --config webpack.config.js",
     "build": "tsc",
