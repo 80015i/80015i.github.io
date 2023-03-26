@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "predeploy": "npm run build", 
+    "predeploy": "npm run build",
     "start": "npm run build && ts-node src/index.ts",
     "deploy": "gh-pages -d build",
     "test": "nyc --reporter=json-summary --reporter=text mocha -r ts-node/register 'src/**/*.test.ts'",
@@ -24,8 +24,7 @@
       "*/**/*.test.ts"
     ]
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "author": "Mihailo Isakov",
   "license": "MIT",
   "bugs": {
@@ -56,6 +55,7 @@
     "animejs": "^3.2.1",
     "parse-svg-path": "^0.1.2",
     "snapsvg": "^0.5.1",
+    "snapsvg-cjs": "^0.0.6",
     "svg-path-morph": "^1.0.2"
   }
 }

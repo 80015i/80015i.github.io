@@ -1,6 +1,6 @@
 import { compile, morph } from '../'
-// TODO: instead of loading snapsvg as a script, package it with webpack
-// import Snap from 'snapsvg';
+import anime from 'animejs/lib/anime.es.js';
+import Snap from 'snapsvg-cjs';
 
 /**
  * Assumes that the DOM has already loaded an SVG and returns the path

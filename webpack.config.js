@@ -7,6 +7,6 @@ module.exports = {
     filename: 'bundle.js',
   },
   optimization : {
-    minimize: false
-  }
+    minimize: true
+  },
 };
