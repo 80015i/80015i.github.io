@@ -1,5 +1,5 @@
 {
-  "name": "boolsi github page",
+  "name": "boolsi_github_page",
   "version": "0.1.1",
   "description": "BoolSi GitHub page",
   "main": "dist/index.js",
@@ -7,7 +7,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "start": "npm run build && ts-node src/index.ts",
-    "deploy": "npm run build & gh-pages -d ./",
+    "deploy": "npm run build && npx webpack --config webpack.config.js && gh-pages -d ./",
     "test": "nyc --reporter=json-summary --reporter=text mocha -r ts-node/register 'src/**/*.test.ts'",
     "main": "npm run build && npx webpack --config webpack.config.js",
     "build": "tsc",
