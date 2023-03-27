@@ -11,7 +11,7 @@
 
   /* font sizes */
   --fs-400: 1.4rem;
-  --fs-500: 1.6rem;
+  --fs-500: 3.0rem;
   --fs-600: clamp(3.2rem, 2vw, 6rem);
 }
 
@@ -280,6 +280,7 @@ main {
 #graphics #nodes_temp,
 #graphics #nodes_svg {
   position: relative;
+  width: 50rem;
 }
 
 @media (min-width: 500px) {
