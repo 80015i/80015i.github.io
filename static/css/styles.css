@@ -133,8 +133,8 @@ body {
 
 nav {
   /* height: 4rem; */
-  padding: 1rem 1rem 1rem 1rem;
-  margin: 1rem;
+  padding: 0.5rem 0.5rem;
+  margin: 0rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -142,7 +142,7 @@ nav {
 }
 
 nav a img {
-  max-width: clamp(200px, 20rem, 60%);
+  max-width: clamp(200px, 15rem, 60%);
   display: block;
   margin: 0 0rem;
 }
@@ -299,30 +299,30 @@ main {
   }
 }
 
-@media (min-width: 1200px) {
-  #graphics #graph,
-  #graphics #nodes_temp, 
-  #graphics #nodes_svg {
-    width: 140rem;
-  }
-}
-
-@media (min-width: 1600px) {
-  #graphics #graph,
-  #graphics #nodes_temp, 
-  #graphics #nodes_svg {
-    width: 160rem;
-  }
-}
-
-@media (min-width: 2000px) {
-  #graphics #graph,
-  #graphics #nodes_temp, 
-  #graphics #nodes_svg {
-    width: 180rem;
-  }
-}
-
+/* @media (min-width: 1200px) { */
+/*   #graphics #graph, */
+/*   #graphics #nodes_temp,  */
+/*   #graphics #nodes_svg { */
+/*     width: 140rem; */
+/*   } */
+/* } */
+/**/
+/* @media (min-width: 1600px) { */
+/*   #graphics #graph, */
+/*   #graphics #nodes_temp,  */
+/*   #graphics #nodes_svg { */
+/*     width: 160rem; */
+/*   } */
+/* } */
+/**/
+/* @media (min-width: 2000px) { */
+/*   #graphics #graph, */
+/*   #graphics #nodes_temp,  */
+/*   #graphics #nodes_svg { */
+/*     width: 180rem; */
+/*   } */
+/* } */
+/**/
 /*  ===========
     Footer
     ===========  */
