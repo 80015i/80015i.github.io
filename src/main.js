@@ -52,12 +52,13 @@ window.addEventListener("load", function() {
    * FIXME: waits 10 milliseconds because otherwise sometimes the SVG does not show up
    */
   setTimeout(() => {
-    // let nodes_temp = document.getElementById("nodes_temp");
-    // let nodes_svg = nodes_temp.contentDocument.getElementById("nodes_svg");
-    // nodes_temp.remove();
-    // document.getElementById("graphics").appendChild(nodes_svg);
+    let nodes_temp = document.getElementById("nodes_temp");
+    let nodes_svg = nodes_temp.contentDocument.getElementById("nodes_svg");
+    nodes_svg.removeAttribute('height');
+    nodes_temp.remove();
+    document.getElementById("graphics").appendChild(nodes_svg);
 
-    const nodes_svg = document.getElementById("nodes_temp").contentDocument.getElementById("nodes_svg");
+    //const nodes_svg = document.getElementById("nodes_temp").contentDocument.getElementById("nodes_svg");
     var neuron_fill = nodes_svg.getElementsByClassName('neuron_fill');
     var neuron_grad = nodes_svg.getElementsByClassName('neuron_grad');
     var neuron_edge = nodes_svg.getElementsByClassName('neuron_edge');

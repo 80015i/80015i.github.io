@@ -18,7 +18,7 @@
 @media (min-width: 600px) {
   :root {
     --fs-400: 1.6rem;
-    --fs-500: 2.2rem;
+    --fs-500: 4.2rem;
   }
 }
 
@@ -37,7 +37,7 @@ html {
   width: 100%;
   /* overflow-x: clip; */
   overflow-x: hidden;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
 img {
@@ -236,11 +236,14 @@ main {
 
 #tagline {
   width: 100%;
-  /* font-size: 3em !important; */
   font-size: var(--fs-500);
   font-weight: 300 !important;
   margin: 0 0 3rem;
   text-align: center;
+}
+
+#tagline h1 {
+  font-size: var(--fs-500);
 }
 
 @media (min-width: 900px) {
@@ -267,48 +270,54 @@ main {
 }
 
 #graphics #graph,
-#graphics #nodes_temp {
+#graphics #nodes_temp 
+#graphics #nodes_svg {
   position: absolute;
   max-width: none;
   width: 50rem;
 }
 
-#graphics #nodes_temp {
-  overflow: visible;
+#graphics #nodes_temp,
+#graphics #nodes_svg {
   position: relative;
 }
 
 @media (min-width: 500px) {
   #graphics #graph,
-  #graphics #nodes_temp {
+  #graphics #nodes_temp, 
+  #graphics #nodes_svg {
     width: 70rem;
   }
 }
 
 @media (min-width: 900px) {
   #graphics #graph,
-  #graphics #nodes_temp {
+  #graphics #nodes_temp,
+  #graphics #nodes_svg {
     width: 120rem;
   }
 }
 
 @media (min-width: 1200px) {
   #graphics #graph,
-  #graphics #nodes_temp {
+  #graphics #nodes_temp, 
+  #graphics #nodes_svg {
     width: 140rem;
   }
 }
 
 @media (min-width: 1600px) {
   #graphics #graph,
-  #graphics #nodes_temp {
+  #graphics #nodes_temp, 
+  #graphics #nodes_svg {
     width: 160rem;
   }
 }
 
 @media (min-width: 2000px) {
   #graphics #graph,
-  #graphics #nodes_temp {
+  #graphics #nodes_temp, 
+  #graphics #nodes_svg {
     width: 180rem;
   }
 }
